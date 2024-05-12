@@ -1,22 +1,18 @@
-import { Button } from '@/components/ui/button';
-import { DatePickerWithPresets } from '@/components/ui/datePickerWithPreset';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
-import { Switch } from '@/components/ui/switch';
-import { Textarea } from '@/components/ui/textarea';
-import { IProduct } from '@/types/globalTypes';
+import { Button } from "@/components/ui/button";
+import { DatePickerWithPresets } from "@/components/ui/datePickerWithPreset";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Switch } from "@/components/ui/switch";
+import { Textarea } from "@/components/ui/textarea";
+import { useAppSelector } from "@/redux/hooks";
+import { IProduct } from "@/types/globalTypes";
 
-import { useState } from 'react';
+import { useState } from "react";
 
 export default function Checkout() {
   const [scheduled, setScheduled] = useState<boolean>(false);
-
-  //! Dummy Data
-
-  const products: IProduct[] = [];
-
-  //! **
+  const { products } = useAppSelector((state) => state.cartSlice);
 
   return (
     <div className="flex justify-center items-center h-[calc(100vh-80px)] gap-10 text-primary">
@@ -99,7 +95,7 @@ export default function Checkout() {
         <h1 className="mb-2">Order Summery</h1>
         <div className="border border-gray-300 rounded-md h-[60vh] p-10 flex flex-col">
           <div className="flex-grow  mb-2 space-y-2 overflow-auto">
-            {products.map((product) => (
+            {products.map((product: IProduct) => (
               <div className="flex justify-between items-center bg-gray-100 p-1 rounded-lg">
                 <div className="flex items-center">
                   <img
