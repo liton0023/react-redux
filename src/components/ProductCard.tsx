@@ -1,16 +1,21 @@
-import { IProduct } from '@/types/globalTypes';
-import { toast } from './ui/use-toast';
-import { Button } from './ui/button';
-import { Link } from 'react-router-dom';
+import { addToCart } from "@/redux/feather/cart/CartSlice";
+import { useAppDispatch } from "@/redux/hooks";
+import { IProduct } from "@/types/globalTypes";
+import { Link } from "react-router-dom";
+import { Button } from "./ui/button";
+import { toast } from "./ui/use-toast";
 
 interface IProps {
   product: IProduct;
 }
 
 export default function ProductCard({ product }: IProps) {
+  const dispatch = useAppDispatch();
   const handleAddProduct = (product: IProduct) => {
+    dispatch(addToCart(product));
+    // console.log(product);
     toast({
-      description: 'Product Added',
+      description: "Product Added",
     });
   };
   return (
@@ -22,7 +27,7 @@ export default function ProductCard({ product }: IProps) {
         </Link>
         <p>Rating: {product?.rating}</p>
         <p className="text-sm">
-          Availability: {product?.status ? 'In stock' : 'Out of stock'}
+          Availability: {product?.status ? "In stock" : "Out of stock"}
         </p>
         <p className="text-sm">Price: {product?.price}</p>
         <Button variant="default" onClick={() => handleAddProduct(product)}>
