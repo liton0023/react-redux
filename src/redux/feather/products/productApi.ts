@@ -1,4 +1,4 @@
-import { api } from "../api/apiSlice";
+import { api } from "../../api/apiSlice";
 
 const productApi = api.injectEndpoints({
   endpoints: (builder) => ({

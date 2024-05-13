@@ -4,12 +4,12 @@ import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
 import { Switch } from "@/components/ui/switch";
 import { useToast } from "@/components/ui/use-toast";
+import { useGetProductsQuery } from "@/redux/feather/products/productApi";
 import {
   setPriceRange,
   toggleState,
 } from "@/redux/feather/products/productSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { useGetProductsQuery } from "@/redux/product/productApi";
 import { IProduct } from "@/types/globalTypes";
 
 export default function Products() {
