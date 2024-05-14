@@ -1,8 +1,8 @@
-import { cn } from '@/lib/utils';
-import { buttonVariants } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
-import logo from '../assets/images/technet-logo-white.png';
-import { LoginForm } from '@/components/LoginForm';
+import { LoginForm } from "@/components/LoginForm";
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+import { Link } from "react-router-dom";
+import logo from "../assets/images/technet-logo-white.png";
 
 export default function Login() {
   return (
@@ -11,8 +11,8 @@ export default function Login() {
         <Link
           to="/signup"
           className={cn(
-            buttonVariants({ variant: 'ghost', size: 'sm' }),
-            'absolute right-4 top-4 md:right-8 md:top-8'
+            buttonVariants({ variant: "ghost", size: "sm" }),
+            "absolute right-4 top-4 md:right-8 md:top-8"
           )}
         >
           Signup
@@ -22,11 +22,13 @@ export default function Login() {
             className="absolute inset-0 bg-cover"
             style={{
               backgroundImage:
-                'url(https://images.unsplash.com/photo-1590069261209-f8e9b8642343?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1376&q=80)',
+                "url(https://images.unsplash.com/photo-1590069261209-f8e9b8642343?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1376&q=80)",
             }}
           />
           <div className="relative z-20 flex items-center text-lg font-medium">
-            <img className="h-8" src={logo} alt="" />
+            <Link to="/">
+              <img className="h-8" src={logo} alt="" />
+            </Link>
           </div>
           <div className="relative z-20 mt-auto">
             <blockquote className="space-y-2"></blockquote>
@@ -44,14 +46,14 @@ export default function Login() {
             </div>
             <LoginForm />
             <p className="px-8 text-center text-sm text-muted-foreground">
-              By clicking continue, you agree to our{' '}
+              By clicking continue, you agree to our{" "}
               <Link
                 to="/terms"
                 className="underline underline-offset-4 hover:text-primary"
               >
                 Terms of Service
-              </Link>{' '}
-              and{' '}
+              </Link>{" "}
+              and{" "}
               <Link
                 to="/privacy"
                 className="underline underline-offset-4 hover:text-primary"

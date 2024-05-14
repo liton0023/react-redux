@@ -7,6 +7,7 @@ import App from "../App";
 import Home from "../page/Home";
 import Login from "../page/Login";
 import NotFound from "../page/NotFound";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -27,7 +28,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/checkout",
-        element: <Checkout />,
+        element: (
+          <PrivateRoute>
+            <Checkout />
+          </PrivateRoute>
+        ),
       },
     ],
   },

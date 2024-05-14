@@ -12,6 +12,7 @@ import { useState } from "react";
 
 export default function Checkout() {
   const [scheduled, setScheduled] = useState<boolean>(false);
+
   const { products } = useAppSelector((state) => state.cartSlice);
 
   return (
