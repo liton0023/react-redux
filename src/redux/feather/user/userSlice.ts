@@ -15,7 +15,7 @@ interface IUserState {
   error: string | null;
 }
 
-interface ICredential {
+export interface ICredential {
   email: string;
   password: string;
 }
